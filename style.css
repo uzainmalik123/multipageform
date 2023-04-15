@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+
+:root {
+    --primary-color: hsl(213, 96%, 18%);
+    --inputs-active: hsl(243, 100%, 62%);
+    --grayish-blue: hsl(228, 100%, 84%);
+    --step-color: hsl(206, 94%, 87%);
+    --error-color: hsl(354, 84%, 57%);
+    --para-color: hsl(231, 11%, 63%);
+    --off-white: hsl(229, 24%, 87%);
+    --background-color: hsl(217, 100%, 97%);
+    --alabaster-color: hsl(231, 100%, 99%);
+    --white-color: hsl(0, 0%, 100%);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+body {
+    background-color: var(--background-color);
+}
+#active {
+    background-color: var(--step-color);
+    border-color: var(--step-color);
+    color: var(--primary-color);
+}
+#step-1 {
+    width: 100%;
+    height: 100dvh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#step-2 {
+    display: none;
+}
+#step-3 {
+    display: none;
+}
+#step-4 {
+    display: none;
+}
+.container {
+    width: 70%;
+    height: 80%;
+    
+    padding: 1rem 1rem;
+    background-color: var(--white-color);
+    border-radius: 15px;
+
+    display: flex;
+}
+.step-1_content-1 {
+    display: flex;
+
+    width: 35%;
+    height: 100%;
+    margin: 0;
+
+    background-image: url(./assets/images/bg-sidebar-desktop.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+}
+.sidebar {
+    display: flex;
+    padding: 2rem 2rem;
+
+    width: 100%;
+    height: 100%;
+}
+.sidebar-steps_numbers {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    margin: 0;
+
+    width: 28%;
+    height: 50%;
+}
+.sidebar-steps_numbers span {
+    padding: 0.4rem;
+    text-align: center;
+    color: var(--white-color);
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    border: 1px solid var(--white-color);
+    width: 70%;
+    margin: 0;
+    font-weight: 700;
+}
+.sidebar-steps_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 60%;
+    height: 50%;
+}
+.sidebar-steps_text label {
+    color: var(--para-color);
+    font-size: 0.85rem;
+
+    margin: 0;
+}
+.sidebar-steps_text h3 {
+    color: var(--white-color);
+    font-size: 0.9rem;
+
+    margin: 0;
+}
+.common-class {
+    width: 100%;
+    height: 17%;
+
+    display: flex;
+    flex-direction: column;
+}
