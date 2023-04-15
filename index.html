@@ -11,6 +11,7 @@
   <title>Frontend Mentor | Multi-step form</title>
 </head>
 <body>
+  <!-- Some classes are there just to tell you what the container is for -->
   <main>
     <section id="step-1">
       <div class="container">
@@ -48,12 +49,51 @@
               <p>Please provide your name, email adress, and phone number.</p>
             </div>
             <div class="step-1_main-inputs">
-              <label>Name</label>
-              <input type="text" placeholder="e.g. Stephen King">
-              <label>Email Address</label>
-              <input type="email" placeholder="e.g. stephenking@lorem.com">
-              <label>Phone number</label>
-              <input type="number" placeholder="e.g. +1 234 567 890">
+              <div class="step-1_main-inputs_name common-class-two">
+                <!-- Name section starts here -->
+              <div class="step-1_main-inputs-labels_errors">
+                <div class="step-1_main-inputs_labels">
+                  <label>Name</label>
+                </div>
+                <div class="step-1_main-inputs_error">
+                  <p>This field is required</p>
+                </div>
+              </div>
+              </div>
+              <div class="step-1_main-inputs_input">
+                <input type="text" placeholder="e.g. Stephen King">
+              </div>
+              <!-- Name section ends here -->
+              <!-- Email section starts here -->
+              <div class="step-1_main-inputs_email common-class-two">
+              <div class="step-1_main-inputs-labels_errors">
+                <div class="step-1_main-inputs_labels">
+                  <label>Email Address</label>
+                </div>
+                <div class="step-1_main-inputs_error">
+                  <p>This field is required</p>
+                </div>
+              </div>
+              </div>
+              <div class="step-1_main-inputs_input">
+                <input type="email" placeholder="e.g. stephenking@lorem.com">
+              </div>
+              <!-- Email section ends here -->
+              <!-- Phone section starts here -->
+              <div class="step-1_main-inputs_phone common-class-two">
+                <div class="step-1_main-inputs-labels_errors">
+                <div class="step-1_main-inputs_labels">
+                  <label>Phone number</label>
+                </div>
+                <div class="step-1_main-inputs_error">
+                  <p>This field is required</p>
+                </div>
+              </div>
+              </div>
+              <div class="step-1_main-inputs_input">
+                <input type="number" placeholder="e.g. +1 234 567 890">
+              </div>
+              <!-- Phone section ends here -->
             </div>
             <div class="main-button">
               <button>Next Step</button>
