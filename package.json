@@ -1,0 +1,22 @@
+{
+  "name": "multi-step-form-main",
+  "version": "1.0.0",
+  "description": "![Design preview for the Multi-step form coding challenge](./design/desktop-preview.jpg)",
+  "main": "index.js",
+  "scripts": {
+    "start": "vite"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uzainmalik123/multipageform.git"
+  },
+  "author": "uzain",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uzainmalik123/multipageform/issues"
+  },
+  "homepage": "https://github.com/uzainmalik123/multipageform#readme",
+  "dependencies": {
+    "vite": "^4.2.1"
+  }
+}
