@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="step-1-style.css">
-  <link rel="stylesheet" href="step-2-style.css">
-  <link rel="stylesheet" href="step-3-style.css">
-  <link rel="stylesheet" href="step-4-style.css">
+  <link rel="stylesheet" href="style.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
@@ -96,15 +93,280 @@
               <!-- Phone section ends here -->
             </div>
             <div class="main-button">
-              <button>Next Step</button>
+              <button class="next">Next Step</button>
             </div>
         </div>
       </div>
     </section>
-    <section id="step-2"></section>
-    <section id="step-3"></section>
-    <section id="step-4"></section>
+    <section id="step-2">
+      <div class="container">
+        <div class="step-2_content-1">
+          <div class="sidebar">
+            <div class="sidebar-steps_numbers">
+              <span>1</span>
+              <span id="active">2</span>
+              <span>3</span>
+              <span>4</span>
+            </div>
+            <div class="sidebar-steps_text">
+              <div class="sidebar-steps_text-container_1 common-class">
+                <label>STEP 1</label>
+                <h3>YOUR INFO</h3>
+              </div>
+              <div class="sidebar-steps_text-container_2  common-class">
+                <label>STEP 2</label>
+                <h3>SELECT PLAN</h3>
+              </div>
+              <div class="sidebar-steps_text-container_3  common-class">
+                <label>STEP 3</label>
+                <h3>ADD-ONS</h3>
+              </div>
+              <div class="sidebar-steps_text-container_4  common-class">
+                <label>STEP 4</label>
+                <h3>SUMMARY</h3>
+              </div>      
+            </div>
+          </div>
+        </div>
+        <div class="step-2_content-2">
+            <div class="main-text">
+              <h1>Select your plan</h1>
+              <p>You have the option of monthly or yearly billing.</p>
+            </div>
+            <div class="step-2_main-inputs">
+              <div class="step-2_main-inputs_name common-class-three">
+              <!-- Arcade section starts here -->
+              <button id="arcade-btn" value="notactive">
+                <img src="./assets/images/icon-arcade.svg" alt="Arcade">
+              <div class="step-2_main-inputs-button_text">
+                <h3>Arcade</h3>
+                <p>$9/mo</p>
+                <p>$90/yr</p>
+                <span class="discount">2 months free</span>
+              </div>
+              </button>
+              <!-- Arcade section ends here -->
+              <!-- Advanced section starts here -->
+              <button id="advanced-btn" value="notactive">
+                <img src="./assets/images/icon-advanced.svg" alt="Advanced">
+                <div class="step-2_main-inputs-button_text">
+                  <h3>Advanced</h3>
+                  <p>$12/mo</p>
+                  <p>$120/mo</p>
+                  <span class="discount">2 months free</span>
+                </div>
+              </button>
+              <!-- Advanced section ends here -->
+              <!-- Pro section starts here -->
+              <button id="pro-btn" value="notactive">
+                <img src="./assets/images/icon-pro.svg" alt="Pro">
+                <div class="step-2_main-inputs-button_text">
+                  <h3>Pro</h3>
+                  <p>$15/mo</p>
+                  <p>$150/mo</p>
+                  <span class="discount">2 months free</span>
+                </div>
+              </button>
+              <!-- Pro section ends here -->
+            </div>
+            <div class="step-2_content-1_switch">
+              <div class="step-2_content-1_switch-container">  
+                <p>Monthly</p>
+                <div class="switchbox">
+                  <div class="switchcircle" id="switchcircle"></div>
+                  <div id="switch_circle-1"></div>
+                  <div id="switch_circle-2"></div>
+                </div>
+                <p>Yearly</p>
+              </div>
+              </div>
+              <div class="main-button">
+              <button class="go-back">Go back</button>
+              <button class="next">Next Step</button>
+            </div>
+        </div>
+      </div>
+    </section>
+    <section id="step-3">
+      <div class="container">
+        <div class="step-1_content-1">
+          <div class="sidebar">
+            <div class="sidebar-steps_numbers">
+              <span>1</span>
+              <span>2</span>
+              <span id="active">3</span>
+              <span>4</span>
+            </div>
+            <div class="sidebar-steps_text">
+              <div class="sidebar-steps_text-container_1 common-class">
+                <label>STEP 1</label>
+                <h3>YOUR INFO</h3>
+              </div>
+              <div class="sidebar-steps_text-container_2  common-class">
+                <label>STEP 2</label>
+                <h3>SELECT PLAN</h3>
+              </div>
+              <div class="sidebar-steps_text-container_3  common-class">
+                <label>STEP 3</label>
+                <h3>ADD-ONS</h3>
+              </div>
+              <div class="sidebar-steps_text-container_4  common-class">
+                <label>STEP 4</label>
+                <h3>SUMMARY</h3>
+              </div>      
+            </div>
+          </div>
+        </div>
+        <div class="step-1_content-2">
+            <div class="main-text">
+              <h1>Personal info</h1>
+              <p>Please provide your name, email adress, and phone number.</p>
+            </div>
+            <div class="step-1_main-inputs">
+              <div class="step-1_main-inputs_name common-class-two">
+                <!-- Name section starts here -->
+              <div class="step-1_main-inputs-labels_errors">
+                <div class="step-1_main-inputs_labels">
+                  <label>Name</label>
+                </div>
+                <div class="step-1_main-inputs_error">
+                  <p>This field is required</p>
+                </div>
+              </div>
+              </div>
+              <div class="step-1_main-inputs_input">
+                <input type="text" placeholder="e.g. Stephen King">
+              </div>
+              <!-- Name section ends here -->
+              <!-- Email section starts here -->
+              <div class="step-1_main-inputs_email common-class-two">
+              <div class="step-1_main-inputs-labels_errors">
+                <div class="step-1_main-inputs_labels">
+                  <label>Email Address</label>
+                </div>
+                <div class="step-1_main-inputs_error">
+                  <p>This field is required</p>
+                </div>
+              </div>
+              </div>
+              <div class="step-1_main-inputs_input">
+                <input type="email" placeholder="e.g. stephenking@lorem.com">
+              </div>
+              <!-- Email section ends here -->
+              <!-- Phone section starts here -->
+              <div class="step-1_main-inputs_phone common-class-two">
+                <div class="step-1_main-inputs-labels_errors">
+                <div class="step-1_main-inputs_labels">
+                  <label>Phone number</label>
+                </div>
+                <div class="step-1_main-inputs_error">
+                  <p>This field is required</p>
+                </div>
+              </div>
+              </div>
+              <div class="step-1_main-inputs_input">
+                <input type="number" placeholder="e.g. +1 234 567 890">
+              </div>
+              <!-- Phone section ends here -->
+            </div>
+            <div class="main-button">
+              <button class="go-back">Go back</button>
+              <button class="next">Next Step</button>
+            </div>
+        </div>
+      </div>
+    </section>
+    <section id="step-4">
+      <div class="container">
+        <div class="step-1_content-1">
+          <div class="sidebar">
+            <div class="sidebar-steps_numbers">
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
+              <span id="active">4</span>
+            </div>
+            <div class="sidebar-steps_text">
+              <div class="sidebar-steps_text-container_1 common-class">
+                <label>STEP 1</label>
+                <h3>YOUR INFO</h3>
+              </div>
+              <div class="sidebar-steps_text-container_2  common-class">
+                <label>STEP 2</label>
+                <h3>SELECT PLAN</h3>
+              </div>
+              <div class="sidebar-steps_text-container_3  common-class">
+                <label>STEP 3</label>
+                <h3>ADD-ONS</h3>
+              </div>
+              <div class="sidebar-steps_text-container_4  common-class">
+                <label>STEP 4</label>
+                <h3>SUMMARY</h3>
+              </div>      
+            </div>
+          </div>
+        </div>
+        <div class="step-1_content-2">
+            <div class="main-text">
+              <h1>Personal info</h1>
+              <p>Please provide your name, email adress, and phone number.</p>
+            </div>
+            <div class="step-1_main-inputs">
+              <div class="step-1_main-inputs_name common-class-two">
+                <!-- Name section starts here -->
+              <div class="step-1_main-inputs-labels_errors">
+                <div class="step-1_main-inputs_labels">
+                  <label>Name</label>
+                </div>
+                <div class="step-1_main-inputs_error">
+                  <p>This field is required</p>
+                </div>
+              </div>
+              </div>
+              <div class="step-1_main-inputs_input">
+                <input type="text" placeholder="e.g. Stephen King">
+              </div>
+              <!-- Name section ends here -->
+              <!-- Email section starts here -->
+              <div class="step-1_main-inputs_email common-class-two">
+              <div class="step-1_main-inputs-labels_errors">
+                <div class="step-1_main-inputs_labels">
+                  <label>Email Address</label>
+                </div>
+                <div class="step-1_main-inputs_error">
+                  <p>This field is required</p>
+                </div>
+              </div>
+              </div>
+              <div class="step-1_main-inputs_input">
+                <input type="email" placeholder="e.g. stephenking@lorem.com">
+              </div>
+              <!-- Email section ends here -->
+              <!-- Phone section starts here -->
+              <div class="step-1_main-inputs_phone common-class-two">
+                <div class="step-1_main-inputs-labels_errors">
+                <div class="step-1_main-inputs_labels">
+                  <label>Phone number</label>
+                </div>
+                <div class="step-1_main-inputs_error">
+                  <p>This field is required</p>
+                </div>
+              </div>
+              </div>
+              <div class="step-1_main-inputs_input">
+                <input type="number" placeholder="e.g. +1 234 567 890">
+              </div>
+              <!-- Phone section ends here -->
+            </div>
+            <div class="main-button">
+              <button class="go-back">Go back</button>
+              <button class="next">Next Step</button>
+            </div>
+        </div>
+      </div>
+    </section>
   </main>
   <script src="script.js"></script>
+  <!-- 5 6 7 8 9 10 -->
 </body>
 </html>
