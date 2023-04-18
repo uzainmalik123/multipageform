@@ -13,10 +13,17 @@ let num = 0;
 let num2 = 0;
 let num3 = 0;
 let num4 = 0;
+let num5 = 0;
+let num6 = 0;
+let num7 = 0;
+let Btns = {}
+let MonthYear = {};
 let DiscountObject = {};
 let FeeObject = {};
 let MonthObject = {};
 let YearObject = {};
+
+arcadeBtn.style.borderColor = "var(--inputs-active)";
 
 for (let i = 5; i < 11; i++) {
   FeeObject[num] = document.getElementsByTagName("p")[i];
@@ -27,6 +34,18 @@ for (let c = 8; c < 11; c++) {
   DiscountObject[num2] = document.getElementsByTagName("span")[c];
   num2++;
 }
+
+for (let d = 1; d < 4; d++) {
+  Btns[num5] = document.getElementsByTagName('button')[d]
+  num5++;
+}
+
+for (let g = 11; g < 13; g++) {
+  MonthYear[num7] = document.getElementsByTagName('p')[g]
+  num7++;
+}
+
+MonthYear[0].style.color = "var(--primary-color)";
 
 switchCirclehrefOne.addEventListener("click", () => {
   switchCircle.style.marginLeft = "5px";
@@ -41,7 +60,17 @@ switchCirclehrefOne.addEventListener("click", () => {
       num3++;
       a++;
     }
+    for (let h = 0; h < 1; h++) {
+      MonthYear[h].style.color = 'var(--primary-color)';
+      h++;
+      MonthYear[h].style.color = 'var(--para-color)';
+      h--;
+    }
+    for (let f = 0; f < 3; f++) {
+      Btns[f].style.height = '100%'
+    }
   }
+  f = 0;
   a = 0;
   num3 = 0;
 });
@@ -54,11 +83,21 @@ switchCirclehrefTwo.addEventListener("click", () => {
     for (let b = 0; b < 6; b++) {
       FeeObject[b].style.display = "none";
       FeeObject[b + 1].style.display = "block";
-      DiscountObject[num4].style.display = 'block';
+      DiscountObject[num4].style.display = 'flex';
       num4++;
       b++;
     }
+    for (let j = 0; j < 1; j++) {
+      MonthYear[j].style.color = 'var(--para-color)';
+      j++;
+      MonthYear[j].style.color = 'var(--primary-color)';
+      j--;   
+    }
+    for (let e = 0; e < 3; e++) {
+      Btns[e].style.height = '110%'
+    }
   }
+  e = 0;
   b = 0;
   num4 = 0;
 });
