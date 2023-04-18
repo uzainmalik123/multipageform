@@ -57,11 +57,18 @@ let MonthObject = {};
 let YearObject = {};
 
 arcadeBtn.style.borderColor = "var(--inputs-active)";
+setTimeout(() => {
+  document.getElementById("switch_circle-1").click();
+  document.getElementById("switch_circle-1").click();
+}, 100)
 
-for (let s = 27; s < 33; s++) {
+
+for (let s = 27; s < 30; s++) {
   AddonServicesPrice[num14] = document.getElementsByTagName("p")[s];
   num14++;
 }
+
+console.log(AddonServicesPrice);
 
 for (let r = 24; r < 27; r++) {
   AddonServices[num13] = document.getElementsByTagName("p")[r];
@@ -134,7 +141,7 @@ switchCirclehrefOne.addEventListener("click", () => {
       o++;
     }
     changeValueofPlan();
-    displayPrices();
+    // displayPrices();
   }
   f = 0;
   a = 0;
@@ -173,7 +180,7 @@ switchCirclehrefTwo.addEventListener("click", () => {
       q++;
     }
     changeValueofPlan();
-    displayPrices();
+    // displayPrices();
   }
   e = 0;
   b = 0;
@@ -305,8 +312,16 @@ firstAddon.addEventListener("click", () => {
     defaultAdYrPrice += 10;
     defaultPrYrPrice += 10;
     AddonServices[0].style.display = "block";
+    if(switchStatusOne == 'active'){
+      AddonServicesPrice[0].style.display = 'block';
+      AddonServicesPrice[0].textContent = '+$1/mo';
+    }
+    else if(switchStatusTwo == 'active'){
+      AddonServicesPrice[1].style.display = 'block';
+      AddonServicesPrice[0].textContent = '+$10/yr';
+    }
     changeValueofPlan();
-    displayPrices();
+    // // displayPrices();
   } else if (firstAddonStatus == "notactive") {
     defaultArMoPrice -= 1;
     defaultAdMoPrice -= 1;
@@ -315,8 +330,9 @@ firstAddon.addEventListener("click", () => {
     defaultAdYrPrice -= 10;
     defaultPrYrPrice -= 10;
     AddonServices[0].style.display = "none";
+    AddonServicesPrice[0].style.display = 'none'
     changeValueofPlan();
-    displayPrices();
+    // // displayPrices();
   }
 });
 secondAddon.addEventListener("click", () => {
@@ -328,8 +344,16 @@ secondAddon.addEventListener("click", () => {
     defaultAdYrPrice += 20;
     defaultPrYrPrice += 20;
     AddonServices[1].style.display = "block";
+    if(switchStatusOne == 'active'){
+      AddonServicesPrice[1].style.display = 'block';
+      AddonServicesPrice[1].textContent = '+$2/mo';
+    }
+    else if(switchStatusTwo == 'active'){
+      AddonServicesPrice[1].style.display = 'block';
+      AddonServicesPrice[1].textContent = '+$20/yr';
+    }
     changeValueofPlan();
-    displayPrices();
+    // // displayPrices();
   } else if (secondAddonStatus == "notactive") {
     defaultArMoPrice -= 2;
     defaultAdMoPrice -= 2;
@@ -338,8 +362,9 @@ secondAddon.addEventListener("click", () => {
     defaultAdYrPrice -= 20;
     defaultPrYrPrice -= 20;
     AddonServices[1].style.display = "none";
+    AddonServicesPrice[1].style.display = 'none';
     changeValueofPlan();
-    displayPrices();
+    // displayPrices();
   }
 });
 thirdAddon.addEventListener("click", () => {
@@ -351,8 +376,16 @@ thirdAddon.addEventListener("click", () => {
     defaultAdYrPrice += 20;
     defaultPrYrPrice += 20;
     AddonServices[2].style.display = "block";
+    if(switchStatusOne == 'active'){
+      AddonServicesPrice[2].style.display = 'block';
+      AddonServicesPrice[2].textContent = '+$2/mo';
+    }
+    else if(switchStatusTwo == 'active'){
+      AddonServicesPrice[2].style.display = 'block';
+      AddonServicesPrice[2].textContent = '+$20/yr';
+    }
     changeValueofPlan();
-    displayPrices();
+    // displayPrices();
   } else if (thirdAddonStatus == "notactive") {
     defaultArMoPrice -= 2;
     defaultAdMoPrice -= 2;
@@ -361,8 +394,9 @@ thirdAddon.addEventListener("click", () => {
     defaultAdYrPrice -= 20;
     defaultPrYrPrice -= 20;
     AddonServices[2].style.display = "none";
+    AddonServicesPrice[2].style.display = 'none';
     changeValueofPlan();
-    displayPrices();
+    // displayPrices();
   }
 });
 
@@ -375,8 +409,6 @@ const changePlans = () => {
     count -= 1;
   }
 };
-
-console.log(AddonServicesPrice);
 
 const changeValueofPlan = () => {
   if (switchStatusOne == "active") {
@@ -412,61 +444,66 @@ const changeValueofPlan = () => {
   }
 };
 
-const displayPrices = () => {
-  if(switchStatusOne == 'active'){
-  firstAddon.addEventListener("click", () => {
-    if (firstAddonStatus == "active") {
-      AddonServicesPrice[1].style.display = "none";
-      AddonServicesPrice[0].style.display = "block";
-    } else if (firstAddonStatus == "notactive") {
-      AddonServicesPrice[0].style.display = "none";
-    }
-  });
-  secondAddon.addEventListener("click", () => {
-    if (secondAddonStatus == "active") {
-      AddonServicesPrice[3].style.display = "none";
-      AddonServicesPrice[2].style.display = "block";
-    } else if (secondAddonStatus == "notactive") {
-      AddonServicesPrice[2].style.display = "none";
-    }
-  });
-  thirdAddon.addEventListener("click", () => {
-    if (thirdAddonStatus == "active") {
-      AddonServicesPrice[5].style.display = "none";
-      AddonServicesPrice[4].style.display = "block";
-    } else if (thirdAddonStatus == "notactive") {
-      AddonServicesPrice[4].style.display = "none";
-    }
-  });
+const changePriceofAddonYrMo = () => {
+  
 }
-else if(switchStatusTwo == 'active'){
-  firstAddon.addEventListener("click", () => {
-    if (firstAddonStatus == "active") {
-      AddonServicesPrice[0].style.display = "none";
-      AddonServicesPrice[1].style.display = "block";
-    } else if (firstAddonStatus == "notactive") {
-      AddonServicesPrice[1].style.display = "none";
-    }
-  });
-  secondAddon.addEventListener("click", () => {
-    if (secondAddonStatus == "active") {
-      AddonServicesPrice[2].style.display = "none";
-      AddonServicesPrice[3].style.display = "block";
-    } else if (secondAddonStatus == "notactive") {
-      AddonServicesPrice[3].style.display = "none";
-    }
-  });
-  thirdAddon.addEventListener("click", () => {
-    if (thirdAddonStatus == "active") {
-      AddonServicesPrice[4].style.display = "none";
-      AddonServicesPrice[5].style.display = "block";
-    } else if (thirdAddonStatus == "notactive") {
-      AddonServicesPrice[5].style.display = "none";
-    }
-  });
-}
-}
+
 changeBtn.addEventListener("click", () => {
   changePlans();
   changeValueofPlan();
 });
+
+// const displayPrices = () => {
+//   if(switchStatusOne == 'active'){
+//   firstAddon.addEventListener("click", () => {
+//     if (firstAddonStatus == "active") {
+//       AddonServicesPrice[1].style.display = "none";
+//       AddonServicesPrice[0].style.display = "block";
+//     } else if (firstAddonStatus == "notactive") {
+//       AddonServicesPrice[0].style.display = "none";
+//     }
+//   });
+//   secondAddon.addEventListener("click", () => {
+//     if (secondAddonStatus == "active") {
+//       AddonServicesPrice[3].style.display = "none";
+//       AddonServicesPrice[2].style.display = "block";
+//     } else if (secondAddonStatus == "notactive") {
+//       AddonServicesPrice[2].style.display = "none";
+//     }
+//   });
+//   thirdAddon.addEventListener("click", () => {
+//     if (thirdAddonStatus == "active") {
+//       AddonServicesPrice[5].style.display = "none";
+//       AddonServicesPrice[4].style.display = "block";
+//     } else if (thirdAddonStatus == "notactive") {
+//       AddonServicesPrice[4].style.display = "none";
+//     }
+//   });
+// }
+// else if(switchStatusTwo == 'active'){
+//   firstAddon.addEventListener("click", () => {
+//     if (firstAddonStatus == "active") {
+//       AddonServicesPrice[0].style.display = "none";
+//       AddonServicesPrice[1].style.display = "block";
+//     } else if (firstAddonStatus == "notactive") {
+//       AddonServicesPrice[1].style.display = "none";
+//     }
+//   });
+//   secondAddon.addEventListener("click", () => {
+//     if (secondAddonStatus == "active") {
+//       AddonServicesPrice[2].style.display = "none";
+//       AddonServicesPrice[3].style.display = "block";
+//     } else if (secondAddonStatus == "notactive") {
+//       AddonServicesPrice[3].style.display = "none";
+//     }
+//   });
+//   thirdAddon.addEventListener("click", () => {
+//     if (thirdAddonStatus == "active") {
+//       AddonServicesPrice[4].style.display = "none";
+//       AddonServicesPrice[5].style.display = "block";
+//     } else if (thirdAddonStatus == "notactive") {
+//       AddonServicesPrice[5].style.display = "none";
+//     }
+//   });
+// }
+// }
