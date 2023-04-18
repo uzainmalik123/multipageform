@@ -9,6 +9,12 @@ let proBtn = document.getElementById("pro-btn");
 let arcadeBtnValue = arcadeBtn.getAttribute("value");
 let advancedBtnValue = advancedBtn.getAttribute("value");
 let proBtnValue = proBtn.getAttribute("value");
+let firstAddon = document.getElementById("first-addon-btn");
+let secondAddon = document.getElementById("second-addon-btn");
+let thirdAddon = document.getElementById("third-addon-btn");
+let firstAddonStatus = firstAddon.getAttribute("value");
+let secondAddonStatus = secondAddon.getAttribute("value");
+let thirdAddonStatus = thirdAddon.getAttribute("value");
 let num = 0;
 let num2 = 0;
 let num3 = 0;
@@ -16,7 +22,14 @@ let num4 = 0;
 let num5 = 0;
 let num6 = 0;
 let num7 = 0;
-let Btns = {}
+let num8 = 0;
+let num9 = 0;
+let num10 = 0;
+let num11 = 0;
+let num12 = 0;
+let AddonsFee = [];
+let IonIcons = [];
+let Btns = {};
 let MonthYear = {};
 let DiscountObject = {};
 let FeeObject = {};
@@ -24,6 +37,19 @@ let MonthObject = {};
 let YearObject = {};
 
 arcadeBtn.style.borderColor = "var(--inputs-active)";
+
+for (let m = 15; m < 23; m++) {
+  AddonsFee[num8] = document.getElementsByTagName('p')[m];
+  num8++;
+  m++;
+  AddonsFee[num8] = document.getElementsByTagName('p')[m];
+  m++;
+  num8++; 
+}
+
+for (let l = 0; l < 3; l++) {
+  IonIcons[l] = document.getElementsByTagName("ion-icon")[l];
+}
 
 for (let i = 5; i < 11; i++) {
   FeeObject[num] = document.getElementsByTagName("p")[i];
@@ -36,12 +62,12 @@ for (let c = 8; c < 11; c++) {
 }
 
 for (let d = 1; d < 4; d++) {
-  Btns[num5] = document.getElementsByTagName('button')[d]
+  Btns[num5] = document.getElementsByTagName("button")[d];
   num5++;
 }
 
 for (let g = 11; g < 13; g++) {
-  MonthYear[num7] = document.getElementsByTagName('p')[g]
+  MonthYear[num7] = document.getElementsByTagName("p")[g];
   num7++;
 }
 
@@ -56,22 +82,33 @@ switchCirclehrefOne.addEventListener("click", () => {
     for (let a = 0; a < 6; a++) {
       FeeObject[a].style.display = "block";
       FeeObject[a + 1].style.display = "none";
-      DiscountObject[num3].style.display = 'none';
+      DiscountObject[num3].style.display = "none";
+
       num3++;
       a++;
     }
     for (let h = 0; h < 1; h++) {
-      MonthYear[h].style.color = 'var(--primary-color)';
+      MonthYear[h].style.color = "var(--primary-color)";
       h++;
-      MonthYear[h].style.color = 'var(--para-color)';
+      MonthYear[h].style.color = "var(--para-color)";
       h--;
     }
     for (let f = 0; f < 3; f++) {
-      Btns[f].style.height = '100%'
+      Btns[f].style.height = "100%";
+    }
+    for (let n = 0; n < 5; n++) {
+      AddonsFee[n].style.display = 'block';
+      n++;
+    }
+    for (let o = 1; o < 6; o++) {
+      AddonsFee[o].style.display = 'none';
+      o++
     }
   }
   f = 0;
   a = 0;
+  n = 0;
+  o = 1;
   num3 = 0;
 });
 switchCirclehrefTwo.addEventListener("click", () => {
@@ -83,22 +120,32 @@ switchCirclehrefTwo.addEventListener("click", () => {
     for (let b = 0; b < 6; b++) {
       FeeObject[b].style.display = "none";
       FeeObject[b + 1].style.display = "block";
-      DiscountObject[num4].style.display = 'flex';
+      DiscountObject[num4].style.display = "flex";
       num4++;
       b++;
     }
     for (let j = 0; j < 1; j++) {
-      MonthYear[j].style.color = 'var(--para-color)';
+      MonthYear[j].style.color = "var(--para-color)";
       j++;
-      MonthYear[j].style.color = 'var(--primary-color)';
-      j--;   
+      MonthYear[j].style.color = "var(--primary-color)";
+      j--;
     }
     for (let e = 0; e < 3; e++) {
-      Btns[e].style.height = '110%'
+      Btns[e].style.height = "110%";
+    }
+    for (let p = 1; p < 6; p++) {
+      AddonsFee[p].style.display = 'block';
+      p++;
+    }
+    for (let q = 0; q < 5; q++) {
+      AddonsFee[q].style.display = 'none';
+      q++;
     }
   }
   e = 0;
   b = 0;
+  p = 1;
+  q = 0;
   num4 = 0;
 });
 
@@ -107,25 +154,105 @@ arcadeBtn.addEventListener("click", () => {
   advancedBtnValue = "notactive";
   proBtnValue = "notactive";
 
+  //BORDER COLOR
+
   arcadeBtn.style.borderColor = "var(--inputs-active)";
   advancedBtn.style.borderColor = "var(--off-white)";
   proBtn.style.borderColor = "var(--off-white)";
+
+  //BACKGROUND COLOR
+
+  arcadeBtn.style.backgroundColor = "var(--alabaster-color)";
+  advancedBtn.style.backgroundColor = "var(--white-color)";
+  proBtn.style.backgroundColor = "var(--white-color)";
 });
 advancedBtn.addEventListener("click", () => {
   arcadeBtnValue = "notactive";
   advancedBtnValue = "active";
   proBtnValue = "notactive";
 
+  //BORDER COLOR
+
   arcadeBtn.style.borderColor = "var(--off-white)";
   advancedBtn.style.borderColor = "var(--inputs-active)";
   proBtn.style.borderColor = "var(--off-white)";
+
+  //BACKGROUND COLOR
+
+  arcadeBtn.style.backgroundColor = "var(--white-color)";
+  advancedBtn.style.backgroundColor = "var(--alabaster-color)";
+  proBtn.style.backgroundColor = "var(--white-color)";
 });
 proBtn.addEventListener("click", () => {
   arcadeBtnValue = "notactive";
   advancedBtnValue = "notactive";
   proBtnValue = "active";
 
+  //BORDER COLOR
+
   arcadeBtn.style.borderColor = "var(--off-white)";
   advancedBtn.style.borderColor = "var(--off-white)";
   proBtn.style.borderColor = "var(--inputs-active)";
+
+  //BACKGROUND COLOR
+
+  arcadeBtn.style.backgroundColor = "var(--white-color)";
+  advancedBtn.style.backgroundColor = "var(--white-color)";
+  proBtn.style.backgroundColor = "var(--alabaster-color)";
+});
+
+const checkFirstAddonStatus = () => {
+  if ((firstAddonStatus == "notactive")) {
+    firstAddonStatus = "active";
+    firstAddon.style.borderColor = "var(--inputs-active)";
+    firstAddon.style.backgroundColor = "var(--alabaster-color)";
+    IonIcons[0].style.color = "var(--inputs-active)"
+    IonIcons[0].style.backgroundColor = "var(--alabaster-color)"
+  } else if ((firstAddonStatus == "active")) {
+    firstAddonStatus = "notactive";
+    firstAddon.style.borderColor = "var(--off-white)";
+    firstAddon.style.backgroundColor = "var(--white-color)";
+    IonIcons[0].style.color = "var(--white-color)";
+    IonIcons[0].style.backgroundColor = "var(--inputs-active)"
+  }
+}
+const checkSecondAddonStatus = () => {
+  if ((secondAddonStatus == "notactive")) {
+    secondAddonStatus = "active";
+    secondAddon.style.borderColor = "var(--inputs-active)";
+    secondAddon.style.backgroundColor = "var(--alabaster-color)";
+    IonIcons[1].style.color = "var(--inputs-active)"
+    IonIcons[1].style.backgroundColor = "var(--alabaster-color)"
+  } else if ((secondAddonStatus == "active")) {
+    secondAddonStatus = "notactive";
+    secondAddon.style.borderColor = "var(--off-white)";
+    secondAddon.style.backgroundColor = "var(--white-color)";
+    IonIcons[1].style.color = "var(--white-color)";
+    IonIcons[1].style.backgroundColor = "var(--inputs-active)"
+  }
+}
+const checkThirdAddonStatus = () => {
+  if ((thirdAddonStatus == "notactive")) {
+    thirdAddonStatus = "active";
+    thirdAddon.style.borderColor = "var(--inputs-active)";
+    thirdAddon.style.backgroundColor = "var(--alabaster-color)";
+    IonIcons[2].style.color = "var(--inputs-active)"
+    IonIcons[2].style.backgroundColor = "var(--alabaster-color)"
+  } else if ((thirdAddonStatus == "active")) {
+    thirdAddonStatus = "notactive";
+    thirdAddon.style.borderColor = "var(--off-white)";
+    thirdAddon.style.backgroundColor = "var(--white-color)";
+    IonIcons[2].style.color = "var(--white-color)";
+    IonIcons[2].style.backgroundColor = "var(--inputs-active)"
+  }
+}
+
+firstAddon.addEventListener("click", () => {
+  checkFirstAddonStatus();
+});
+secondAddon.addEventListener("click", () => {
+  checkSecondAddonStatus();
+});
+thirdAddon.addEventListener("click", () => {
+  checkThirdAddonStatus();
 });
