@@ -581,5 +581,16 @@ h3 {
     .step-2_main-inputs-button_text span {
         align-items: center; 
     }
-    
+    #step-3 {
+        align-items: flex-start;
+    }
+    .common-class-four button {
+        margin-top: 0.75rem;
+    }
+    .step-3_main-inputs-button_text p {
+        font-size: 0.70rem;
+    }
+    .step-3_main-inputs-button_text h3 {
+        font-size: 0.95rem;
+    }
 }
