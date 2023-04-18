@@ -15,6 +15,22 @@ let thirdAddon = document.getElementById("third-addon-btn");
 let firstAddonStatus = firstAddon.getAttribute("value");
 let secondAddonStatus = secondAddon.getAttribute("value");
 let thirdAddonStatus = thirdAddon.getAttribute("value");
+let changingHeadingYrMo = document.getElementById("heading-change-moyr");
+let changeBtn = document.getElementById("change-btn");
+let headingPerMonth = document.getElementById("heading-per-month");
+let headingPerYear = document.getElementById("heading-per-year");
+let paraTotal = document.getElementById("para-total");
+let headingTotal = document.getElementById("heading-total");
+let defaultArMoPrice = 9;
+let defaultAdMoPrice = 12;
+let defaultPrMoPrice = 15;
+let defaultArYrPrice = 90;
+let defaultAdYrPrice = 120;
+let defaultPrYrPrice = 150;
+let addonOne = "0";
+let addonTwo = "0";
+let addonThree = "0";
+let count = 0;
 let num = 0;
 let num2 = 0;
 let num3 = 0;
@@ -27,6 +43,10 @@ let num9 = 0;
 let num10 = 0;
 let num11 = 0;
 let num12 = 0;
+let num13 = 0;
+let num14 = 0;
+let AddonServicesPrice = [];
+let AddonServices = [];
 let AddonsFee = [];
 let IonIcons = [];
 let Btns = {};
@@ -38,13 +58,23 @@ let YearObject = {};
 
 arcadeBtn.style.borderColor = "var(--inputs-active)";
 
+for (let s = 27; s < 33; s++) {
+  AddonServicesPrice[num14] = document.getElementsByTagName("p")[s];
+  num14++;
+}
+
+for (let r = 24; r < 27; r++) {
+  AddonServices[num13] = document.getElementsByTagName("p")[r];
+  num13++;
+}
+
 for (let m = 15; m < 23; m++) {
-  AddonsFee[num8] = document.getElementsByTagName('p')[m];
+  AddonsFee[num8] = document.getElementsByTagName("p")[m];
   num8++;
   m++;
-  AddonsFee[num8] = document.getElementsByTagName('p')[m];
+  AddonsFee[num8] = document.getElementsByTagName("p")[m];
   m++;
-  num8++; 
+  num8++;
 }
 
 for (let l = 0; l < 3; l++) {
@@ -83,7 +113,6 @@ switchCirclehrefOne.addEventListener("click", () => {
       FeeObject[a].style.display = "block";
       FeeObject[a + 1].style.display = "none";
       DiscountObject[num3].style.display = "none";
-
       num3++;
       a++;
     }
@@ -97,13 +126,15 @@ switchCirclehrefOne.addEventListener("click", () => {
       Btns[f].style.height = "100%";
     }
     for (let n = 0; n < 5; n++) {
-      AddonsFee[n].style.display = 'block';
+      AddonsFee[n].style.display = "block";
       n++;
     }
     for (let o = 1; o < 6; o++) {
-      AddonsFee[o].style.display = 'none';
-      o++
+      AddonsFee[o].style.display = "none";
+      o++;
     }
+    changeValueofPlan();
+    displayPrices();
   }
   f = 0;
   a = 0;
@@ -134,13 +165,15 @@ switchCirclehrefTwo.addEventListener("click", () => {
       Btns[e].style.height = "110%";
     }
     for (let p = 1; p < 6; p++) {
-      AddonsFee[p].style.display = 'block';
+      AddonsFee[p].style.display = "block";
       p++;
     }
     for (let q = 0; q < 5; q++) {
-      AddonsFee[q].style.display = 'none';
+      AddonsFee[q].style.display = "none";
       q++;
     }
+    changeValueofPlan();
+    displayPrices();
   }
   e = 0;
   b = 0;
@@ -165,6 +198,8 @@ arcadeBtn.addEventListener("click", () => {
   arcadeBtn.style.backgroundColor = "var(--alabaster-color)";
   advancedBtn.style.backgroundColor = "var(--white-color)";
   proBtn.style.backgroundColor = "var(--white-color)";
+
+  changeValueofPlan();
 });
 advancedBtn.addEventListener("click", () => {
   arcadeBtnValue = "notactive";
@@ -182,6 +217,8 @@ advancedBtn.addEventListener("click", () => {
   arcadeBtn.style.backgroundColor = "var(--white-color)";
   advancedBtn.style.backgroundColor = "var(--alabaster-color)";
   proBtn.style.backgroundColor = "var(--white-color)";
+
+  changeValueofPlan();
 });
 proBtn.addEventListener("click", () => {
   arcadeBtnValue = "notactive";
@@ -199,53 +236,55 @@ proBtn.addEventListener("click", () => {
   arcadeBtn.style.backgroundColor = "var(--white-color)";
   advancedBtn.style.backgroundColor = "var(--white-color)";
   proBtn.style.backgroundColor = "var(--alabaster-color)";
+
+  changeValueofPlan();
 });
 
 const checkFirstAddonStatus = () => {
-  if ((firstAddonStatus == "notactive")) {
+  if (firstAddonStatus == "notactive") {
     firstAddonStatus = "active";
     firstAddon.style.borderColor = "var(--inputs-active)";
     firstAddon.style.backgroundColor = "var(--alabaster-color)";
-    IonIcons[0].style.color = "var(--inputs-active)"
-    IonIcons[0].style.backgroundColor = "var(--alabaster-color)"
-  } else if ((firstAddonStatus == "active")) {
+    IonIcons[0].style.color = "var(--inputs-active)";
+    IonIcons[0].style.backgroundColor = "var(--alabaster-color)";
+  } else if (firstAddonStatus == "active") {
     firstAddonStatus = "notactive";
     firstAddon.style.borderColor = "var(--off-white)";
     firstAddon.style.backgroundColor = "var(--white-color)";
     IonIcons[0].style.color = "var(--white-color)";
-    IonIcons[0].style.backgroundColor = "var(--inputs-active)"
+    IonIcons[0].style.backgroundColor = "var(--inputs-active)";
   }
-}
+};
 const checkSecondAddonStatus = () => {
-  if ((secondAddonStatus == "notactive")) {
+  if (secondAddonStatus == "notactive") {
     secondAddonStatus = "active";
     secondAddon.style.borderColor = "var(--inputs-active)";
     secondAddon.style.backgroundColor = "var(--alabaster-color)";
-    IonIcons[1].style.color = "var(--inputs-active)"
-    IonIcons[1].style.backgroundColor = "var(--alabaster-color)"
-  } else if ((secondAddonStatus == "active")) {
+    IonIcons[1].style.color = "var(--inputs-active)";
+    IonIcons[1].style.backgroundColor = "var(--alabaster-color)";
+  } else if (secondAddonStatus == "active") {
     secondAddonStatus = "notactive";
     secondAddon.style.borderColor = "var(--off-white)";
     secondAddon.style.backgroundColor = "var(--white-color)";
     IonIcons[1].style.color = "var(--white-color)";
-    IonIcons[1].style.backgroundColor = "var(--inputs-active)"
+    IonIcons[1].style.backgroundColor = "var(--inputs-active)";
   }
-}
+};
 const checkThirdAddonStatus = () => {
-  if ((thirdAddonStatus == "notactive")) {
+  if (thirdAddonStatus == "notactive") {
     thirdAddonStatus = "active";
     thirdAddon.style.borderColor = "var(--inputs-active)";
     thirdAddon.style.backgroundColor = "var(--alabaster-color)";
-    IonIcons[2].style.color = "var(--inputs-active)"
-    IonIcons[2].style.backgroundColor = "var(--alabaster-color)"
-  } else if ((thirdAddonStatus == "active")) {
+    IonIcons[2].style.color = "var(--inputs-active)";
+    IonIcons[2].style.backgroundColor = "var(--alabaster-color)";
+  } else if (thirdAddonStatus == "active") {
     thirdAddonStatus = "notactive";
     thirdAddon.style.borderColor = "var(--off-white)";
     thirdAddon.style.backgroundColor = "var(--white-color)";
     IonIcons[2].style.color = "var(--white-color)";
-    IonIcons[2].style.backgroundColor = "var(--inputs-active)"
+    IonIcons[2].style.backgroundColor = "var(--inputs-active)";
   }
-}
+};
 
 firstAddon.addEventListener("click", () => {
   checkFirstAddonStatus();
@@ -255,4 +294,179 @@ secondAddon.addEventListener("click", () => {
 });
 thirdAddon.addEventListener("click", () => {
   checkThirdAddonStatus();
+});
+
+firstAddon.addEventListener("click", () => {
+  if (firstAddonStatus == "active") {
+    defaultArMoPrice += 1;
+    defaultAdMoPrice += 1;
+    defaultPrMoPrice += 1;
+    defaultArYrPrice += 10;
+    defaultAdYrPrice += 10;
+    defaultPrYrPrice += 10;
+    AddonServices[0].style.display = "block";
+    changeValueofPlan();
+    displayPrices();
+  } else if (firstAddonStatus == "notactive") {
+    defaultArMoPrice -= 1;
+    defaultAdMoPrice -= 1;
+    defaultPrMoPrice -= 1;
+    defaultArYrPrice -= 10;
+    defaultAdYrPrice -= 10;
+    defaultPrYrPrice -= 10;
+    AddonServices[0].style.display = "none";
+    changeValueofPlan();
+    displayPrices();
+  }
+});
+secondAddon.addEventListener("click", () => {
+  if (secondAddonStatus == "active") {
+    defaultArMoPrice += 2;
+    defaultAdMoPrice += 2;
+    defaultPrMoPrice += 2;
+    defaultArYrPrice += 20;
+    defaultAdYrPrice += 20;
+    defaultPrYrPrice += 20;
+    AddonServices[1].style.display = "block";
+    changeValueofPlan();
+    displayPrices();
+  } else if (secondAddonStatus == "notactive") {
+    defaultArMoPrice -= 2;
+    defaultAdMoPrice -= 2;
+    defaultPrMoPrice -= 2;
+    defaultArYrPrice -= 20;
+    defaultAdYrPrice -= 20;
+    defaultPrYrPrice -= 20;
+    AddonServices[1].style.display = "none";
+    changeValueofPlan();
+    displayPrices();
+  }
+});
+thirdAddon.addEventListener("click", () => {
+  if (thirdAddonStatus == "active") {
+    defaultArMoPrice += 2;
+    defaultAdMoPrice += 2;
+    defaultPrMoPrice += 2;
+    defaultArYrPrice += 20;
+    defaultAdYrPrice += 20;
+    defaultPrYrPrice += 20;
+    AddonServices[2].style.display = "block";
+    changeValueofPlan();
+    displayPrices();
+  } else if (thirdAddonStatus == "notactive") {
+    defaultArMoPrice -= 2;
+    defaultAdMoPrice -= 2;
+    defaultPrMoPrice -= 2;
+    defaultArYrPrice -= 20;
+    defaultAdYrPrice -= 20;
+    defaultPrYrPrice -= 20;
+    AddonServices[2].style.display = "none";
+    changeValueofPlan();
+    displayPrices();
+  }
+});
+
+const changePlans = () => {
+  if (count == 0) {
+    document.getElementById("switch_circle-2").click();
+    count += 1;
+  } else if (count == 1) {
+    document.getElementById("switch_circle-1").click();
+    count -= 1;
+  }
+};
+
+console.log(AddonServicesPrice);
+
+const changeValueofPlan = () => {
+  if (switchStatusOne == "active") {
+    if (arcadeBtnValue == "active") {
+      headingTotal.textContent = "+$" + defaultArMoPrice + "/mo";
+      changingHeadingYrMo.textContent = "Arcade (Monthly)";
+      headingPerMonth.textContent = "+$9/mo";
+    } else if (advancedBtnValue == "active") {
+      headingTotal.textContent = "+$" + defaultAdMoPrice + "/mo";
+      changingHeadingYrMo.textContent = "Advanced (Monthly)";
+      headingPerMonth.textContent = "+$12/mo";
+    } else if (proBtnValue == "active") {
+      headingTotal.textContent = "+$" + defaultPrMoPrice + "/mo";
+      changingHeadingYrMo.textContent = "Pro (Monthly)";
+      headingPerMonth.textContent = "+$15/mo";
+    }
+    paraTotal.textContent = "Total (per month)";
+  } else if (switchStatusTwo == "active") {
+    if (arcadeBtnValue == "active") {
+      headingTotal.textContent = "+$" + defaultArYrPrice + "/yr";
+      changingHeadingYrMo.textContent = "Arcade (Yearly)";
+      headingPerMonth.textContent = "+$90/yr";
+    } else if (advancedBtnValue == "active") {
+      headingTotal.textContent = "+$" + defaultAdYrPrice + "/yr";
+      changingHeadingYrMo.textContent = "Advanced (Yearly)";
+      headingPerMonth.textContent = "+$120/yr";
+    } else if (proBtnValue == "active") {
+      headingTotal.textContent = "+$" + defaultPrYrPrice + "/yr";
+      changingHeadingYrMo.textContent = "Pro (Yearly)";
+      headingPerMonth.textContent = "+$150/yr";
+    }
+    paraTotal.textContent = "Total (per year)";
+  }
+};
+
+const displayPrices = () => {
+  if(switchStatusOne == 'active'){
+  firstAddon.addEventListener("click", () => {
+    if (firstAddonStatus == "active") {
+      AddonServicesPrice[1].style.display = "none";
+      AddonServicesPrice[0].style.display = "block";
+    } else if (firstAddonStatus == "notactive") {
+      AddonServicesPrice[0].style.display = "none";
+    }
+  });
+  secondAddon.addEventListener("click", () => {
+    if (secondAddonStatus == "active") {
+      AddonServicesPrice[3].style.display = "none";
+      AddonServicesPrice[2].style.display = "block";
+    } else if (secondAddonStatus == "notactive") {
+      AddonServicesPrice[2].style.display = "none";
+    }
+  });
+  thirdAddon.addEventListener("click", () => {
+    if (thirdAddonStatus == "active") {
+      AddonServicesPrice[5].style.display = "none";
+      AddonServicesPrice[4].style.display = "block";
+    } else if (thirdAddonStatus == "notactive") {
+      AddonServicesPrice[4].style.display = "none";
+    }
+  });
+}
+else if(switchStatusTwo == 'active'){
+  firstAddon.addEventListener("click", () => {
+    if (firstAddonStatus == "active") {
+      AddonServicesPrice[0].style.display = "none";
+      AddonServicesPrice[1].style.display = "block";
+    } else if (firstAddonStatus == "notactive") {
+      AddonServicesPrice[1].style.display = "none";
+    }
+  });
+  secondAddon.addEventListener("click", () => {
+    if (secondAddonStatus == "active") {
+      AddonServicesPrice[2].style.display = "none";
+      AddonServicesPrice[3].style.display = "block";
+    } else if (secondAddonStatus == "notactive") {
+      AddonServicesPrice[3].style.display = "none";
+    }
+  });
+  thirdAddon.addEventListener("click", () => {
+    if (thirdAddonStatus == "active") {
+      AddonServicesPrice[4].style.display = "none";
+      AddonServicesPrice[5].style.display = "block";
+    } else if (thirdAddonStatus == "notactive") {
+      AddonServicesPrice[5].style.display = "none";
+    }
+  });
+}
+}
+changeBtn.addEventListener("click", () => {
+  changePlans();
+  changeValueofPlan();
 });
