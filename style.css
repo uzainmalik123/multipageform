@@ -537,6 +537,16 @@ h3 {
     text-decoration: underline;
     text-decoration-color: var(--para-color);
 }
+.step-4_content-2_adding-text button:hover {
+    color: var(--inputs-active);
+    text-decoration-color: var(--inputs-active);
+}
+.special-next {
+    background-color: var(--inputs-active);
+}
+.special-next:hover {
+    background-color: #938CFE !important;
+}
 .step-4_content-2_adding-price {
     width: 20%;
     height: 75%;
