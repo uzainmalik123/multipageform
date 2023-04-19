@@ -30,10 +30,12 @@ input {
     border: 1px solid var(--off-white);
     border-radius: 5px;
     width: 100%;
+    transition: 0.2s all;
 }
 input:active,
 input:focus {
     outline-color: var(--inputs-active);
+    transition: 0.2s all;
 }
 button {
     width: 25%;
@@ -95,7 +97,7 @@ h3 {
     justify-content: center;
     align-items: center;
 
-    /* display: none; */
+    display: none;
 }
 #step-3 {
     width: 100%;
@@ -105,7 +107,7 @@ h3 {
     justify-content: center;
     align-items: center;
 
-    /* display: none; */
+    display: none;
 }
 #step-4 {
     width: 100%;
@@ -115,7 +117,7 @@ h3 {
     justify-content: center;
     align-items: center;
 
-    /* display: none; */
+    display: none;
 }
 #step-5 {
     width: 100%;
@@ -125,7 +127,7 @@ h3 {
     justify-content: center;
     align-items: center;
 
-    /* display: none; */
+    display: none;
 }
 .container {
     width: 70%;
@@ -252,8 +254,9 @@ h3 {
     font-weight: 500;
     color: var(--primary-color);
 }
-.step-1_main-inputs_error {
+.step-1_main-inputs_error p {
     display: none;
+    transition: 0.2s all;
 }
 .main-button {
     width: 100%;
@@ -640,6 +643,45 @@ h3 {
     color: var(--inputs-active);
 }
 
+/* step-5 */
+
+.step-5_content-2 {
+    width: 70%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.step-5_content-2_image {
+    width: 100%;
+    height: 25%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.step-5_content-2_text {
+    width: 100%;
+    height: 25%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.step-5_content-2_text h1 {
+    margin-bottom: 1rem;
+}
+.step-5_content-2_text p {
+    color: var(--para-color);
+    line-height: 1.5rem;
+    text-align: center;
+    font-size: 1.05rem;
+}
+
 @media screen and (max-width: 375px) {
     p {
         line-height: 20px;
@@ -771,5 +813,12 @@ h3 {
     } 
     .step-4_content-2_cost hr {
         margin-bottom: 0.5rem;
+    }
+    #step-5 {
+        align-items: flex-start;
+    }
+    .step-5_content-2 {
+        justify-content: space-evenly;
+        height: 90%;
     }
 }

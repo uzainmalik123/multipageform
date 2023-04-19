@@ -21,6 +21,11 @@ let headingPerMonth = document.getElementById("heading-per-month");
 let headingPerYear = document.getElementById("heading-per-year");
 let paraTotal = document.getElementById("para-total");
 let headingTotal = document.getElementById("heading-total");
+let StepOne = document.getElementById('step-1');
+let StepTwo = document.getElementById('step-2');
+let StepThree = document.getElementById('step-3');
+let StepFour = document.getElementById('step-4');
+let StepFive = document.getElementById('step-5');
 let defaultArMoPrice = 9;
 let defaultAdMoPrice = 12;
 let defaultPrMoPrice = 15;
@@ -31,6 +36,7 @@ let addonOne = "0";
 let addonTwo = "0";
 let addonThree = "0";
 let count = 0;
+let count2 = 0;
 let num = 0;
 let num2 = 0;
 let num3 = 0;
@@ -45,6 +51,13 @@ let num11 = 0;
 let num12 = 0;
 let num13 = 0;
 let num14 = 0;
+let num15 = 0;
+let num16 = 0;
+let stepOneInputsErrors = [];
+let stepOneInputs = [];
+let NextBtns = [];
+let BackBtns = [];
+let ConfirmBtn = document.getElementById('confirm-btn');
 let AddonServicesPrice = [];
 let AddonServices = [];
 let AddonsFee = [];
@@ -55,6 +68,12 @@ let DiscountObject = {};
 let FeeObject = {};
 let MonthObject = {};
 let YearObject = {};
+BackBtns[0] = document.getElementsByTagName('button')[4];
+BackBtns[1] = document.getElementsByTagName('button')[9];
+BackBtns[2] = document.getElementsByTagName('button')[12];
+NextBtns[0] = document.getElementsByTagName('button')[0];
+NextBtns[1] = document.getElementsByTagName('button')[5];
+NextBtns[2] = document.getElementsByTagName('button')[10];
 
 arcadeBtn.style.borderColor = "var(--inputs-active)";
 setTimeout(() => {
@@ -62,13 +81,19 @@ setTimeout(() => {
   document.getElementById("switch_circle-1").click();
 }, 100)
 
+for (let u = 1; u < 4; u++) {
+  stepOneInputsErrors[num16] = document.getElementsByTagName('p')[u];
+  num16++;
+}
+
+for (let t = 0; t < 3; t++) {
+  stepOneInputs[t] = document.getElementsByTagName('input')[t];
+}
 
 for (let s = 27; s < 30; s++) {
   AddonServicesPrice[num14] = document.getElementsByTagName("p")[s];
   num14++;
 }
-
-console.log(AddonServicesPrice);
 
 for (let r = 24; r < 27; r++) {
   AddonServices[num13] = document.getElementsByTagName("p")[r];
@@ -456,6 +481,101 @@ const changePriceofAddonYrMo = () => {
     AddonServicesPrice[2].textContent = '+$20/yr';
   }
 }
+
+let stepOneInputsEmail = stepOneInputs[1];
+
+const changeSteps = () => {
+  if(count2 == 0){
+    StepOne.style.display = 'flex';
+    StepTwo.style.display = 'none';
+  }
+  else if(count2 == 1){
+    StepOne.style.display = 'none';
+    StepTwo.style.display = 'flex';
+    StepThree.style.display = 'none';
+  }
+  else if(count2 == 2){
+    StepTwo.style.display = 'none';
+    StepThree.style.display = 'flex';
+    StepFour.style.display = 'none';
+  }
+  else if(count2 == 3){
+    StepThree.style.display = 'none';
+    StepFour.style.display = 'flex';
+    StepFive.style.display = 'none';
+  }
+  else if(count2 == 4){
+    StepFour.style.display = 'none';
+    StepFive.style.display = 'flex';
+  }
+}
+
+NextBtns[0].addEventListener('click', () => {
+  let stepOneInputsEmailVal = stepOneInputsEmail.value;
+  if(stepOneInputs[0].value == ''){
+    stepOneInputsErrors[0].style.display = 'block';
+    stepOneInputsErrors[0].style.transition = '0.2s';
+    stepOneInputs[0].style.borderColor = 'var(--error-color)';
+  }
+  else {
+    stepOneInputsErrors[0].style.display = 'none';
+    stepOneInputs[0].style.borderColor = 'var(--off-white)';
+  }
+  if(stepOneInputs[1].value == ''){
+    stepOneInputsErrors[1].style.display = 'block';
+    stepOneInputsErrors[1].style.transition = '0.2s';
+    stepOneInputs[1].style.borderColor = 'var(--error-color)';
+  }
+  else {
+    if(stepOneInputsEmailVal.includes('@') == false){
+       stepOneInputsErrors[1].style.display = 'block';
+       stepOneInputs[1].style.borderColor = 'var(--error-color)';
+    }
+    else {
+       stepOneInputsErrors[1].style.display = 'none';
+       stepOneInputs[1].style.borderColor = 'var(--off-white)';
+    }
+  }
+  if(stepOneInputs[2].value.length != 10){
+    stepOneInputsErrors[2].style.display = 'block';
+    stepOneInputs[2].style.borderColor = 'var(--error-color)';
+  }
+  else {
+    stepOneInputsErrors[2].style.display = 'none';
+    stepOneInputs[2].style.borderColor = 'var(--off-white)';
+  }
+  if(stepOneInputs[0].value != '' && stepOneInputsEmailVal.includes('@') == true && stepOneInputs[2].value.length == 10) {
+    count2 += 1 
+    changeSteps();
+  }
+  else {
+    count2 = 0
+  }
+})
+NextBtns[1].addEventListener('click', () => {
+  count2 += 1;
+  changeSteps();
+})
+NextBtns[2].addEventListener('click', () => {
+  count2 += 1;
+  changeSteps();
+})
+ConfirmBtn.addEventListener('click', () => {
+  count2 += 1;
+  changeSteps();
+})
+BackBtns[0].addEventListener('click', () => {
+  count2 -= 1;
+  changeSteps();
+})
+BackBtns[1].addEventListener('click', () => {
+  count2 -= 1;
+  changeSteps();
+})
+BackBtns[2].addEventListener('click', () => {
+  count2 -= 1;
+  changeSteps();
+})
 
 changeBtn.addEventListener("click", () => {
   changePlans();
